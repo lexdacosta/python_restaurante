@@ -1,5 +1,5 @@
 # abora importar os comandos do sistema operacional
-import os
+import subprocess
 
 def exibir_nome_do_programa():
     print("""
@@ -21,7 +21,7 @@ def exibir_opcoes():
     print('4. Sair\n')
 
 def finalizar_app():
-    os.system('cls')  # Limpa a tela do terminal
+    subprocess.run('cls', shell=True)  # Limpa a tela do terminal
     print("""
 
 ╭━━━╮╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╭╮
@@ -35,9 +35,10 @@ def finalizar_app():
           
           """)
 
+
 def opcao_invalida():
     print('Opção inválida!\n')
-    print('Digite uma tecla para voltar ao menu principal')
+    input('Digite uma tecla para voltar ao menu principal')
     main()
 
 def escolher_opcao():
@@ -65,7 +66,7 @@ def escolher_opcao():
         opcao_invalida()
 
 def main():
-    os.system('cls')  # Limpa a tela do terminal
+    subprocess.run('cls', shell=True)
     exibir_nome_do_programa()
     exibir_opcoes()
     escolher_opcao()
