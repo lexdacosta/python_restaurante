@@ -1,6 +1,6 @@
 # bora importar os comandos do sistema operacional
 import subprocess
-restaurantes = []
+restaurantes = ['Lasanha','Pizza','Hamburguer','Sushi','Churrasco']
 
 def exibir_nome_do_programa():
     print("""
@@ -51,6 +51,14 @@ def cadastrar_novo_restaurante():
     input('Digite uma tecla para voltar ao menu principal')
     main()
 
+def listar_restaurantes():
+    subprocess.run('cls', shell=True)
+    print('Lista de restaurantes cadastrados\n')
+    for restaurante in restaurantes:
+        print(f'.{restaurante}')
+    input('\nDigite uma tecla para voltar ao menu principal')
+    main()
+
 def escolher_opcao():
     try:
         opcao_escolhida = int(input('Digite a opção desejada: '))
@@ -64,7 +72,7 @@ def escolher_opcao():
         if opcao_escolhida == 1:
             cadastrar_novo_restaurante()
         elif opcao_escolhida == 2:
-            print('Opção 2 escolhida: Listar restaurante')
+            listar_restaurantes()
         elif opcao_escolhida == 3:
             print('Opção 3 escolhida: Ativar restaurante')  
         elif opcao_escolhida == 4:
