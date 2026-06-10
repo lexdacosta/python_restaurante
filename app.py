@@ -21,9 +21,12 @@ def exibir_opcoes():
     print('3. Ativar restaurante\n')
     print('4. Sair\n')
 
+def voltar_ao_menu_principal():
+    input('\nDigite uma tecla para voltar ao menu principal')
+    main()
+
 def finalizar_app():
-    subprocess.run('cls', shell=True)  # Limpa a tela do terminal
-    print("""
+    exibir_subtitulo("""
 
 ╭━━━╮╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╭╮
 ┃╭━━╯╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱┃┃
@@ -39,21 +42,23 @@ def finalizar_app():
 
 def opcao_invalida():
     print('Opção inválida!\n')
-    input('Digite uma tecla para voltar ao menu principal')
-    main()
+    voltar_ao_menu_principal()
+
+def exibir_subtitulo(text):
+    subprocess.run('cls', shell=True)
+    print(text)
+    print()
+
 
 def cadastrar_novo_restaurante():
-    subprocess.run('cls', shell=True)
-    print('Cadastro de novos restaurantes\n')
+    exibir_subtitulo('Cadastro de novos restaurantes\n')
     nome_do_restaurante = input('Digite o nome do restaurante que deseja cadastrar: ')
     restaurantes.append(nome_do_restaurante)
     print(f'O restaurante {nome_do_restaurante} foi cadastrado com sucesso!\n')
-    input('Digite uma tecla para voltar ao menu principal')
-    main()
+    voltar_ao_menu_principal()
 
 def listar_restaurantes():
-    subprocess.run('cls', shell=True)
-    print('Lista de restaurantes cadastrados\n')
+    exibir_subtitulo('Lista de restaurantes cadastrados\n')
     for restaurante in restaurantes:
         print(f'.{restaurante}')
     input('\nDigite uma tecla para voltar ao menu principal')
