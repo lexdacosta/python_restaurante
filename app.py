@@ -1,6 +1,6 @@
 # bora importar os comandos do sistema operacional
 import subprocess
-restaurantes = ['Lasanha','Pizza','Hamburguer','Sushi','Churrasco']
+restaurantes = [{'nome':'Yokan', 'categoria':'Japonesa', 'ativo':True},{ 'nome':'Sakura', 'categoria':'Japonesa', 'ativo':False},{ 'nome':'Dom Corleone', 'categoria':'Italiana', 'ativo':True}]
 
 def exibir_nome_do_programa():
     print("""
@@ -60,7 +60,10 @@ def cadastrar_novo_restaurante():
 def listar_restaurantes():
     exibir_subtitulo('Lista de restaurantes cadastrados\n')
     for restaurante in restaurantes:
-        print(f'.{restaurante}')
+        nome_restaurante = restaurante['nome']
+        categoria = restaurante['categoria']
+        ativo = restaurante['ativo']
+        print(f'.{nome_restaurante} | {categoria} | {ativo}')
     input('\nDigite uma tecla para voltar ao menu principal')
     main()
 
